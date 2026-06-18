@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir Obra</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<main class="contenedor-formulario">
+    <div class="tarjeta-formulario">
+<h1>Añadir nueva obra</h1>
+
+<a href="/admin/obras">Volver al listado</a>
+
+<form action="/admin/obras/guardar" method="post" enctype="multipart/form-data">
+
+    <label>Título:</label>
+    <input type="text" name="titulo" required>
+    <br><br>
+
+    <label>Autor:</label>
+    <input type="text" name="autor" required>
+    <br><br>
+
+    <label>Año:</label>
+    <input type="number" name="anio">
+    <br><br>
+
+    <label>Técnica:</label>
+    <input type="text" name="tecnica">
+    <br><br>
+
+    <label>Dimensiones:</label>
+    <input type="text" name="dimensiones">
+    <br><br>
+    <label>Imagen:</label>
+    <input type="file" name="imagen" accept="image/*">
+    <br><br>
+
+    <label>Descripción:</label>
+    <br>
+    <textarea name="descripcion" rows="5" cols="40"></textarea>
+    <br><br>
+
+    <button type="submit">Guardar obra</button>
+
+</form>
+    </div>
+</main>
+</body>
+</html>

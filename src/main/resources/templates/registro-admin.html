@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Administrador</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="contenedor-formulario">
+    <div class="tarjeta-formulario">
+<h1>Registrar nuevo administrador</h1>
+
+<p style="color:red;" th:if="${error}" th:text="${error}"></p>
+
+<form action="/admin/registro" method="post">
+
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <br><br>
+
+    <label>Contraseña:</label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <button type="submit">Registrar</button>
+
+</form>
+
+<br>
+
+<a href="/admin/login">Volver al login</a>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Obras</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="contenedor-formulario">
+    <div class="tarjeta-formulario">
+<h1>Gestión de Obras</h1>
+
+<a href="/admin/panel">Volver al panel</a>
+<br><br>
+
+<a href="/admin/obras/nueva">
+    Añadir nueva obra
+</a>
+
+<hr>
+
+<h2>Obras existentes</h2>
+
+<p th:if="${#lists.isEmpty(obras)}">
+    Todavía no hay obras registradas.
+</p>
+
+<table border="1" th:if="${!#lists.isEmpty(obras)}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Año</th>
+        <th>Visible</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="obra : ${obras}">
+        <td th:text="${obra.idObra}"></td>
+        <td th:text="${obra.titulo}"></td>
+        <td th:text="${obra.autor}"></td>
+        <td th:text="${obra.anio}"></td>
+        <td th:text="${obra.visible}"></td>
+        <td>
+            <a th:href="@{/admin/obras/editar/{id}(id=${obra.idObra})}">
+                Editar
+            </a>
+
+            |
+
+            <a th:if="${obra.visible == true}"
+               th:href="@{/admin/obras/ocultar/{id}(id=${obra.idObra})}">
+                Ocultar
+            </a>
+            |
+            <a th:if="${obra.visible == false}"
+               th:href="@{/admin/obras/mostrar/{id}(id=${obra.idObra})}">
+                Mostrar
+            </a>
+
+            |
+
+            <a th:href="@{/admin/obras/eliminar-definitivo/{id}(id=${obra.idObra})}"
+               onclick="return confirm('¿Seguro que quieres eliminar definitivamente esta obra?')">
+                Eliminar definitivo
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+</main>
+</body>
+</html>

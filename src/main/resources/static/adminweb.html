@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <Address>Admin Web</Address>
+    </title>
+</head>
+
+<body>
+    <div class="admin-web">
+        <h1>Admin Web</h1>
+        <p>Bienvenido al panel de administración de la colección de arte del IES Bernaldo de Quirós.</p>
+        <p>Aquí puedes gestionar las obras de arte, los artistas y las categorías.</p>
+    </div>
+    <div class="registro-admin">
+        <h2>Iniciar sesión como administrador</h2>
+        <p>Por favor, ingresa tus credenciales para acceder al panel de administración.</p>
+        <form action="/admin/login" method="POST">
+
+            <label for="usuario" class="form-label">  Nombre de administrador</label>
+            <input type="text" id="usuario" name="nombre" class="form-control" required>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+            <button type="submit">   Iniciar sesión
+            </button>
+        </form>
+    </div>
+    <div class="admin-login">
+        <h2>Registrar nuevo administrador</h2>
+        <form action="/formRegistro" method="POST">
+
+            <label for="nuevo-usuario" class="form-label">   Nombre de administrador</label>
+            <input type="text" id="nuevo-usuario" name="nombre" class="form-control" required>
+            <label for="nuevo-password" class="form-label"> Contraseña</label>
+            <input type="password" id="nuevo-password" name="password" class="form-control" required>
+            <button type="submit"> Registrar administrador</button>
+            <p id="mensajeRegistro"></p>
+
+        </form>
+    </div>
+    <script src="js/usuarios.js"></script>
+</body>
+</body>
+
+</html>

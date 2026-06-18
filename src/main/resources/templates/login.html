@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="contenedor-formulario">
+    <div class="tarjeta-formulario">
+        <h1>Iniciar Sesión</h1>
+<form th:action="@{/admin/login}" th:object="${loginDTO}" method="post">
+
+    <input type="text" th:field="*{nombre}" placeholder="Usuario">
+    <input type="password" th:field="*{password}" placeholder="Contraseña">
+
+    <button type="submit">Entrar</button>
+</form>
+<br>
+<a href="/admin/registro">Registrar nuevo administrador</a>
+<p th:if="${error}" th:text="${error}"></p>
+    </div>
+</main>
+</body>
+</html>
